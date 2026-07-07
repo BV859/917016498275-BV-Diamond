@@ -16,78 +16,132 @@
         .instruction-box h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 400; color: #111111; margin-bottom: 10px; }
         .instruction-box p { font-size: 0.85rem; color: #666; letter-spacing: 1px; }
 
-        .main-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .main-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: left; }
         
-        .search-wrapper-flex { display: flex; gap: 15px; width: 100%; max-width: 800px; margin: 0 auto 30px auto; }
-        .search-bar { flex: 1; padding: 24px 30px; border: 2px solid #1a1a1a; font-size: 1.3rem; text-align: center; outline: none; background: #fafafa; letter-spacing: 1px; font-family: 'Segoe UI', sans-serif; font-weight: 500; box-shadow: 0 10px 25px rgba(0,0,0,0.02); transition: all 0.3s ease; }
+        .search-wrapper-flex { display: flex; gap: 15px; width: 100%; max-width: 800px; margin: 0 auto 30px auto; position: relative; }
+        .search-bar { flex: 1; padding: 24px 60px 24px 30px; border: 2px solid #1a1a1a; font-size: 1.3rem; text-align: center; outline: none; background: #fafafa; letter-spacing: 1px; font-family: 'Segoe UI', sans-serif; font-weight: 500; box-shadow: 0 10px 25px rgba(0,0,0,0.02); transition: all 0.3s ease; }
+        
+        .clear-history-btn { 
+            position: absolute; 
+            right: 175px; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            background: #ef4444; 
+            color: #ffffff; 
+            border: none; 
+            border-radius: 50%; 
+            width: 26px; 
+            height: 26px; 
+            font-size: 0.85rem; 
+            cursor: pointer; 
+            display: none; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: bold;
+            transition: background 0.2s;
+            z-index: 10;
+        }
+        .clear-history-btn:hover { background: #dc2626; }
 
-        .apply-search-btn { padding: 0 40px; border: 2px solid #1a1a1a; background: #1a1a1a; color: #ffffff; font-family: 'Segoe UI', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; font-weight: 600; transition: 0.3s; }
+        .apply-search-btn { padding: 0 40px; border: 2px solid #1a1a1a; background: #1a1a1a; color: #ffffff; font-family: 'Segoe UI', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; font-weight: 600; transition: 0.3s; z-index: 5; }
         .apply-search-btn:hover { background: #ffffff; color: #1a1a1a; }
 
         .button-group { display: flex; gap: 15px; width: 100%; max-width: 500px; margin: 0 auto 40px auto; }
-        .btn { flex: 1; padding: 15px; border: 1px solid #1a1a1a; background: transparent; color: #1a1a1a; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; cursor: pointer; transition: 0.3s; font-family: 'Segoe UI', sans-serif; }
+        .btn { flex: 1; padding: 15px; border: 1px solid #1a1a1a; background: transparent; color: #1a1a1a; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; cursor: pointer; transition: 0.3s; font-family: 'Segoe UI', sans-serif; text-align: center; }
         .btn:hover, .btn.active { background: #1a1a1a; color: #ffffff; }
 
-        .section-title { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 30px; font-weight: 400; color: #111111; }
-        .shape-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 25px; margin-bottom: 50px; }
-        .shape-card { border: 1px solid #eaeaea; padding: 30px 15px; background: #ffffff; text-align: center; cursor: pointer; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .shape-card:hover { border-color: #1a1a1a; box-shadow: 0 8px 20px rgba(0,0,0,0.03); transform: translateY(-3px); }
-        .shape-card.selected { border: 2px solid #1a1a1a !important; background-color: #fcfcfc; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important; transform: scale(1.02); }
-        .shape-card svg { color: #222222; margin-bottom: 20px; transition: transform 0.3s; }
-        .shape-card:hover svg { transform: scale(1.05); }
-        .shape-card h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 400; color: #1a1a1a; }
+        .shape-section-wrapper { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 40px; }
+        .shape-title { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 600; color: #111111; font-family: 'Segoe UI', sans-serif; }
+        .shape-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(82px, 1fr)); gap: 10px; }
+        .shape-card { background: #eef2f7; border: 1px solid transparent; border-radius: 8px; padding: 10px 4px; text-align: center; cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 88px; width: 100%; }
+        .shape-card:hover { background: #e2e8f0; }
+        .shape-card.selected { border: 2px solid #3b82f6 !important; background-color: #e2e8f0; transform: scale(1.02); }
+        .shape-card svg { color: #475569; width: 38px; height: 38px; margin-bottom: 6px; }
+        .shape-card h3 { font-size: 0.72rem; font-family: 'Segoe UI', sans-serif; font-weight: 500; color: #334155; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 2px; }
         
-        .carat-range-section { max-width: 500px; margin: 40px auto; text-align: center; }
+        .range-container-flex { display: flex; gap: 30px; width: 100%; max-width: 1000px; margin: 40px auto; }
+        .range-sub-section { flex: 1; text-align: center; }
         .input-label { font-family: 'Segoe UI', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #475569; margin-bottom: 15px; display: block; }
-        .carat-box-group { display: flex; gap: 20px; width: 100%; }
-        .carat-input-box { flex: 1; padding: 18px; border: 1px solid #1a1a1a; font-size: 1.1rem; text-align: center; outline: none; letter-spacing: 1px; font-family: 'Segoe UI', sans-serif; background: transparent; }
+        .box-group-flex { display: flex; gap: 15px; width: 100%; }
+        .range-input-box { flex: 1; padding: 16px; border: 1px solid #1a1a1a; font-size: 1.05rem; text-align: center; outline: none; letter-spacing: 1px; font-family: 'Segoe UI', sans-serif; background: transparent; transition: all 0.3s; }
+        .range-input-box:disabled { background: #f3f4f6; border-color: #cbd5e1; color: #94a3b8; cursor: not-allowed; }
 
-        .clarity-master-section { max-width: 1000px; margin: 40px auto; text-align: center; }
-        .clarity-box-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); gap: 12px; margin-top: 15px; }
-        .clarity-card { border: 1px solid #ddd; padding: 18px 5px; font-family: 'Segoe UI', sans-serif; font-size: 0.9rem; font-weight: 500; cursor: pointer; text-transform: uppercase; transition: all 0.2s ease; background: #ffffff; letter-spacing: 1px; }
-        .clarity-card:hover { border-color: #1a1a1a; }
-        .clarity-card.selected { border: 2px solid #1a1a1a !important; font-weight: 700; transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.05); background: #fafafa; }
+        .section-title-premium { font-family: 'Playfair Display', serif; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 5px; font-weight: 400; color: #111111; margin: 60px 0 30px 0; text-align: center; }
+        .section-subtitle-premium { font-family: 'Segoe UI', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 600; color: #475569; margin: 30px 0 15px 0; text-align: left; }
 
-        .color-master-section { max-width: 1000px; margin: 50px auto 100px auto; text-align: center; }
-        .color-sub-title { font-family: 'Segoe UI', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #475569; margin: 25px 0 15px 0; text-align: left; }
-        .color-box-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 12px; margin-bottom: 30px; }
-        .color-card { border: 1px solid #ddd; padding: 15px 5px; font-family: 'Segoe UI', sans-serif; font-size: 0.9rem; font-weight: 500; cursor: pointer; text-transform: uppercase; transition: all 0.2s ease; background: #ffffff; }
-        .color-card:hover { border-color: #1a1a1a; }
-        .color-card.selected { border: 2px solid #1a1a1a !important; font-weight: 700; transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .premium-box-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 12px; margin-bottom: 20px; }
+        .premium-square-card { border: 1px solid #e2e8f0; padding: 18px 5px; font-family: 'Segoe UI', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; text-transform: uppercase; transition: all 0.2s ease; background: #ffffff; text-align: center; color: #111111; }
+        .premium-square-card:hover { border-color: #111111; }
+        .premium-square-card.selected { border: 2px solid #111111 !important; font-weight: 700; background: #f8fafc; }
 
         .f-yellow { background-color: #fffdeb !important; } .f-pink { background-color: #fff0f5 !important; }
         .f-blue { background-color: #f0f8ff !important; } .f-green { background-color: #f5fffa !important; }
         .f-red { background-color: #ffe4e1 !important; } .f-orange { background-color: #fff5ee !important; }
-        .f-purple { background-color: #f8f8ff !important; } .f-black { background-color: #1a1a1a !important; color: #ffffff; }
+        .f-purple { background-color: #f8f8ff !important; } .f-black { background-color: #1a1a1a !important; color: #ffffff !important; }
+        .f-black.selected { border: 2px solid #111111 !important; box-shadow: 0 0 0 2px #ffffff inset; }
 
-        .bottom-apply-section { max-width: 300px; margin: 0 auto 60px auto; }
+        .bottom-apply-section { max-width: 300px; margin: 60px auto 60px auto; text-align: center; }
         .apply-bottom-btn { width: 100%; padding: 18px; border: 2px solid #1a1a1a; background: #1a1a1a; color: #ffffff; font-family: 'Segoe UI', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; font-weight: 600; transition: 0.3s; }
         .apply-bottom-btn:hover { background: #ffffff; color: #1a1a1a; }
 
-        footer { background-color: #111111; padding: 40px 20px; width: 100%; text-align: center; }
-        .footer-social-group { display: flex; justify-content: center; align-items: center; gap: 35px; }
-        .social-link { color: #ffffff; transition: all 0.3s ease; display: inline-block; }
-        .social-link:hover { color: #94a3b8; transform: translateY(-3px); }
+        .social-link { transition: all 0.3s ease; }
+        .social-link:hover { color: #cbd5e1 !important; transform: translateY(-4px) scale(1.03); filter: drop-shadow(0 5px 10px rgba(255,255,255,0.1)); }
 
-        .white-page-view { background: #ffffff; min-height: 100vh; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; display: flex; flex-direction: column; justify-content: space-between; }
+        .white-page-view { background: #ffffff; min-height: 100vh; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; display: none; flex-direction: column; justify-content: space-between; }
         .wp-bar { background: #111111; height: 50px; width: 100%; display: flex; align-items: center; padding: 0 20px; }
-        
         .back-btn { background: transparent; border: 1px solid #ffffff; color: #ffffff; padding: 6px 15px; font-family: 'Segoe UI', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; }
         .back-btn:hover { background: #ffffff; color: #111111; }
         
         .wp-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; }
         .wp-instruction { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; color: #475569; margin-bottom: 25px; font-family: 'Segoe UI', sans-serif; font-weight: 600; }
         
-        .wp-spec-box { width: 100%; max-width: 700px; padding: 30px; border: 2px solid #111111; background: #fafafa; font-size: 1.4rem; font-family: 'Segoe UI', sans-serif; font-weight: 500; text-align: center; letter-spacing: 1px; margin-bottom: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.03); }
+        .wp-editable-box { 
+            width: 100%; 
+            max-width: 700px; 
+            height: 180px;
+            padding: 20px; 
+            border: 2px solid #111111; 
+            background: #ffffff; 
+            font-size: 1.3rem; 
+            font-family: 'Segoe UI', sans-serif; 
+            font-weight: 500; 
+            text-align: center; 
+            letter-spacing: 0.5px; 
+            margin-bottom: 40px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03); 
+            resize: none; 
+            outline: none;
+            line-height: 1.6;
+            white-space: pre-line;
+        }
         
-        .wp-chat-group { display: flex; gap: 20px; width: 100%; max-width: 500px; }
-        .chat-action-btn { flex: 1; padding: 18px; border: 2px solid #111111; font-family: 'Segoe UI', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .wp-chat-group { display: flex; gap: 20px; width: 100%; max-width: 550px; }
+        .chat-action-btn { flex: 1; padding: 18px; border: 1px solid #e2e8f0; font-family: 'Segoe UI', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none; border-radius: 8px; }
         
-        .wp-wa-btn { background: #111111; color: #ffffff; }
-        .wp-wa-btn:hover { background: #ffffff; color: #111111; }
+        .wp-wa-btn { background: #25D366; color: #ffffff; border-color: #22c35e; }
+        .wp-wa-btn:hover { background: #20ba5a; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
         
-        .wp-tg-btn { background: transparent; color: #111111; }
-        .wp-tg-btn:hover { background: #111111; color: #ffffff; }
+        .wp-tg-btn { background: #0088cc; color: #ffffff; border-color: #007bb3; }
+        .wp-tg-btn:hover { background: #007bb3; box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3); }
+
+        .chat-action-btn svg { width: 24px; height: 24px; fill: currentColor; }
+
+        /* 📱 મોબાઈલ રિસ્પોન્સિવનેસ માટે કસ્ટમ પ્રીમિયમ મીડિયા ક્વેરીઝ */
+        @media screen and (max-width: 768px) {
+            body { padding: 20px 0 0 0; }
+            header h1 { font-size: 2rem; letter-spacing: 6px; }
+            header p { font-size: 0.7rem; letter-spacing: 2px; }
+            .search-wrapper-flex { flex-direction: column; gap: 10px; width: 100%; padding: 0 10px; }
+            .search-bar { padding: 16px 50px 16px 20px; font-size: 1.1rem; }
+            .clear-history-btn { right: 25px; top: 30px; }
+            .apply-search-btn { padding: 15px; width: 100%; font-size: 0.9rem; }
+            .button-group { padding: 0 10px; gap: 10px; }
+            .range-container-flex { flex-direction: column; gap: 20px; padding: 0 10px; }
+            .premium-box-grid { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 8px; }
+            .premium-square-card { padding: 12px 2px; font-size: 0.78rem; }
+            .wp-chat-group { flex-direction: column; gap: 12px; width: 100%; }
+            .wp-editable-box { font-size: 1.1rem; height: 160px; }
+        }
     </style>
 </head>
 <body>
@@ -106,7 +160,8 @@
         <div class="main-container">
             
             <div class="search-wrapper-flex">
-                <input type="text" id="diamondSearch" class="search-bar" placeholder="Selected Specs will appear here..." readonly>
+                <input type="text" id="diamondSearch" class="search-bar" placeholder="Please select your criteria below to build specs..." readonly>
+                <button id="clearBtn" class="clear-history-btn" onclick="clearAllSelections()" title="Remove History">✖</button>
                 <button class="apply-search-btn" onclick="openWhitePage()">Apply</button>
             </div>
 
@@ -115,58 +170,123 @@
                 <button class="btn" id="btnLabGrown" onclick="selectType('Lab-Grown Diamond')">Lab-Grown</button>
             </div>
 
-            <h2 class="section-title">Select Accurate Diamond Shape</h2>
+            <!-- ડાયમંડ શેપ્સ ગ્રીડ -->
+            <div class="shape-section-wrapper">
+                <h2 class="shape-title">Shape</h2>
+                <div class="shape-grid">
+                    <!-- Row 1 -->
+                    <div class="shape-card" onclick="selectShape('Round', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><circle cx="50" cy="50" r="42"/><circle cx="50" cy="50" r="20"/><polygon points="50,6 65,21 50,30 35,21"/><polygon points="94,50 79,65 70,50 79,35"/><polygon points="50,94 35,79 50,70 65,79"/><polygon points="6,50 21,35 30,50 21,65"/><path d="M50 6 L50 20 M94 50 L80 50 M50 94 L50 80 M6 50 L20 50 M19 19 L35 35 M81 19 L65 35 M81 81 L65 65 M19 81 L35 65"/></svg><h3>Round</h3></div>
+                    <div class="shape-card" onclick="selectShape('Oval', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><ellipse cx="50" cy="50" rx="28" ry="44"/><ellipse cx="50" cy="50" rx="12" ry="22"/><path d="M50 6 L50 28 M50 94 L50 72 M22 50 L38 50 M78 50 L62 50 M31 18 L42 34 M69 18 L58 34 M69 82 L58 66 M31 82 L42 66"/></svg><h3>Oval</h3></div>
+                    <div class="shape-card" onclick="selectShape('Pear', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M50 8 C20 50 16 78 50 94 C84 78 80 50 50 8 Z"/><path d="M50 8 L50 94 M50 35 L26 65 M50 35 L74 65 M50 68 L20 76 M50 68 L80 76 M32 50 L50 22 L68 50 Z"/></svg><h3>Pear</h3></div>
+                    <div class="shape-card" onclick="selectShape('Cush Mod', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="16" y="16" width="68" height="68" rx="20"/><rect x="30" y="30" width="40" height="40" rx="8"/><path d="M16 16 L30 30 M84 16 L70 30 M84 84 L70 70 M16 84 L30 70 M50 16 L50 30 M84 50 L70 50 M50 84 L50 70 M16 50 L30 50"/></svg><h3>Cush Mod</h3></div>
+                    <div class="shape-card" onclick="selectShape('Cush Brill', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="15" y="15" width="70" height="70" rx="16"/><polygon points="50,28 72,50 50,72 28,50"/><path d="M15 15 L85 85 M15 85 L85 15 M50 15 L50 85 M15 50 H85"/></svg><h3>Cush Brill</h3></div>
+                    <div class="shape-card" onclick="selectShape('Emerald', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="22" y="14" width="56" height="72" rx="4"/><rect x="28" y="20" width="44" height="60" rx="2"/><rect x="36" y="28" width="28" height="44"/><path d="M22 14 L36 28 M78 14 L64 28 M78 86 L64 72 M22 86 L36 72"/></svg><h3>Emerald</h3></div>
+                    <div class="shape-card" onclick="selectShape('Radiant', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="20" y="14" width="60" height="72" rx="6"/><polygon points="50,26 70,50 50,74 30,50"/><path d="M20 20 L30 26 M80 20 L70 26 M80 80 L70 74 M20 80 L30 74 M50 14 V26 V86 M20 50 H30 M70 50 H80"/></svg><h3>Radiant</h3></div>
+                    <div class="shape-card" onclick="selectShape('Princess', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="16" y="16" width="68" height="68"/><polygon points="50,30 70,50 50,70 30,50"/><path d="M16 16 L84 84 M16 84 L84 16 M50 16 V84 M16 50 H84"/></svg><h3>Princess</h3></div>
+                    <div class="shape-card" onclick="selectShape('Asscher', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="18" y="18" width="64" height="64" rx="6"/><rect x="26" y="26" width="48" height="48" rx="2"/><rect x="36" y="36" width="28" height="28"/><path d="M18 18 L82 82 M18 82 L82 18 M50 18 V82 M18 50 H82"/></svg><h3>Asscher</h3></div>
+                    <div class="shape-card" onclick="selectShape('Square', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="18" y="18" width="64" height="64"/><rect x="32" y="32" width="36" height="36"/><path d="M18 18 L32 32 M82 18 L68 32 M82 82 L68 32 M18 82 L32 68 M50 18 V32 M82 50 H68 M50 82 V68 M18 50 H32"/></svg><h3>Square</h3></div>
+                    <div class="shape-card" onclick="selectShape('Marquise', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M50 6 C18 38 18 62 50 94 C82 62 82 38 50 6 Z"/><polygon points="50,26 70,50 50,74 30,50"/><path d="M50 6 V26 M50 74 V94 M30 50 H19 M70 50 H81"/></svg><h3>Marquise</h3></div>
+                    <div class="shape-card" onclick="selectShape('Heart', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M50 28 C50 22 42 14 28 14 C14 14 8 28 25 54 C38 70 50 88 50 88 C50 88 62 70 75 54 C92 28 86 14 72 14 C58 14 50 22 50 28 Z"/><polygon points="50,38 65,52 50,68 35,52"/><path d="M50 28 V38 M28 14 L35 52 M72 14 L65 52 M25 54 L35 52 M75 54 L65 52"/></svg><h3>Heart</h3></div>
+                    <div class="shape-card" onclick="selectShape('Trilliant', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><polygon points="50,12 92,82 8,82"/><polygon points="50,42 72,72 28,72"/><path d="M50 12 V42 M92 82 L72 72 M8 82 L28 72 M50 12 L72 72 M50 12 L28 72"/></svg><h3>Trilliant</h3></div>
+                    <div class="shape-card" onclick="selectShape('Euro Cut', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><circle cx="50" cy="50" r="42"/><circle cx="50" cy="50" r="14"/><path d="M50 8 L50 92 M8 50 H92 M20 20 L80 80 M20 80 L80 20 M50 8 L62 22 L50 36 L38 22 Z M50 92 L62 78 L50 64 L38 78 Z"/></svg><h3>Euro Cut</h3></div>
+
+                    <!-- Row 2 -->
+                    <div class="shape-card" onclick="selectShape('Old Miner', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="18" y="18" width="64" height="64" rx="16"/><circle cx="50" cy="50" r="16"/><path d="M18 18 L34 34 M82 18 L66 34 M82 82 L66 66 M18 82 L34 66 M50 18 L50 34 M82 50 H66 M50 82 V66 M18 50 H34"/></svg><h3>Old Miner</h3></div>
+                    <div class="shape-card" onclick="selectShape('Briolette', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M50 8 C24 45 24 80 50 94 C76 80 76 45 50 8 Z"/><path d="M50 8 L50 94 M30 52 H70 M34 74 H66 M40 30 H60 M27 40 L50 64 L73 40 M34 74 L50 94 L66 74"/></svg><h3>Briolette</h3></div>
+                    <div class="shape-card" onclick="selectShape('Rose Cut', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><circle cx="50" cy="50" r="42"/><polygon points="50,18 78,50 50,82 22,50"/><path d="M50 8 V18 M50 82 V92 M8 50 H22 M78 50 H92 M20 20 L36 36 M80 20 L64 36 M80 80 L64 64 M20 80 L36 64"/></svg><h3>Rose Cut</h3></div>
+                    <div class="shape-card" onclick="selectShape('Lozenge', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><polygon points="50,8 84,50 50,92 16,50"/><polygon points="50,30 68,50 50,70 32,50"/><path d="M50 8 V30 M50 70 V92 M16 50 H32 M68 50 H84"/></svg><h3>Lozenge</h3></div>
+                    <div class="shape-card" onclick="selectShape('Baguette', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="30" y="12" width="40" height="76"/><rect x="36" y="18" width="28" height="64"/><path d="M30 12 L36 18 M70 12 L64 18 M70 88 L64 82 M30 88 L36 82 M30 50 H36 M64 50 H70"/></svg><h3>Baguette</h3></div>
+                    <div class="shape-card" onclick="selectShape('Tap Bag', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><polygon points="34,14 66,14 76,86 24,86"/><polygon points="38,22 62,22 68,78 32,78"/><path d="M34 14 L38 22 M66 14 L62 22 M76 86 L68 78 M24 86 L32 78 M29 50 H35 M65 50 H71"/></svg><h3>Tap Bag</h3></div>
+                    <div class="shape-card" onclick="selectShape('Half Moon', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M44 12 C72 12 88 34 88 50 C88 66 72 88 44 88 Z"/><path d="M44 12 V88 M44 32 H68 M44 50 H88 M44 68 H68 M44 12 L68 32 M44 88 L68 68"/></svg><h3>Half Moon</h3></div>
+                    <div class="shape-card" onclick="selectShape('Flanders', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><rect x="18" y="18" width="64" height="64" rx="10"/><polygon points="30,30 70,30 70,70 30,70"/><path d="M18 18 L30 30 M82 18 L70 30 M82 82 L70 70 M18 82 L30 70 M50 18 V30 M82 50 H70 M50 82 V70 M18 50 H30"/></svg><h3>Flanders</h3></div>
+                    <div class="shape-card" onclick="selectShape('Trapezoid', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><polygon points="26,20 74,20 90,80 10,80"/><polygon points="34,32 66,32 76,68 24,68"/><path d="M26 20 L34 32 M74 20 L66 32 M90 80 L76 68 M10 80 L24 68 M18 50 H24 M76 50 H82"/></svg><h3>Trapezoid</h3></div>
+                    <div class="shape-card" onclick="selectShape('Bullets', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M28 14 H72 V62 L50 88 L28 62 Z"/><path d="M36 24 H64 V56 L50 74 L36 56 Z"/><path d="M28 14 L36 24 M72 14 L64 24 M72 62 L64 56 M28 62 L36 56 M50 88 L50 74"/></svg><h3>Bullets</h3></div>
+                    <div class="shape-card" onclick="selectShape('Kite', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><polygon points="50,8 84,44 50,92 16,44"/><polygon points="50,28 68,44 50,68 32,44"/><path d="M50 8 V28 M50 68 V92 M16 44 H32 M68 44 H84 M32 44 L50 8 M68 44 L50 8 M32 44 L50 92 M68 44 L50 92"/></svg><h3>Kite</h3></div>
+                    <div class="shape-card" onclick="selectShape('Shield', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M20 16 H80 L72 56 L50 88 L28 56 Z"/><path d="M32 26 H68 L62 50 L50 72 L38 50 Z"/><path d="M20 16 L32 26 M80 16 L68 26 M72 56 L62 50 M28 56 L38 50 M50 88 L50 72"/></svg><h3>Shield</h3></div>
+                    <div class="shape-card" onclick="selectShape('Star', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><polygon points="50,6 64,36 96,36 70,55 80,88 50,68 20,88 30,55 4,36 36,36"/><polygon points="50,26 56,38 72,38 60,46 64,60 50,52 36,60 40,46 28,38 44,38"/><path d="M50 6 V26 M96 36 L72 38 M80 88 L64 60 M20 88 L36 60 M4 36 L28 38"/></svg><h3>Star</h3></div>
+                    <div class="shape-card" onclick="selectShape('Pentagon', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><polygon points="50,10 90,40 75,86 25,86 10,40"/><polygon points="50,28 74,46 65,74 35,74 26,46"/><path d="M50 10 V28 M90 40 L74 46 M75 86 L65 74 M25 86 L35 74 M10 40 L26 46"/></svg><h3>Pentagon</h3></div>
+
+                    <!-- Row 3 -->
+                    <div class="shape-card" onclick="selectShape('Hexagonal', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><polygon points="50,10 86,30 86,70 50,90 14,70 14,30"/><polygon points="50,26 72,38 72,62 50,74 28,62 28,38"/><path d="M50 10 V26 M86 30 L72 38 M86 70 L72 62 M50 90 V74 M14 70 L28 62 M14 30 L28 38"/></svg><h3>Hexagonal</h3></div>
+                    <div class="shape-card" onclick="selectShape('Octagonal', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><polygon points="34,14 66,14 86,34 86,66 66,86 34,86 14,66 14,34"/><polygon points="39,24 61,24 74,37 74,63 61,76 39,76 26,63 26,37"/><path d="M34 14 L39 24 M66 14 L61 24 M86 34 L74 37 M86 66 L74 63 M66 86 L61 76 M34 86 L39 76 M14 66 L26 63 M14 34 L26 37"/></svg><h3>Octagonal</h3></div>
+                    <div class="shape-card" onclick="selectShape('Portuguese', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.6"><circle cx="50" cy="50" r="42"/><circle cx="50" cy="50" r="28"/><circle cx="50" cy="50" r="14"/><path d="M50 8 V92 M8 50 H92 M20 20 L80 80 M20 80 L80 20 M35 11 L65 89 M65 11 L35 89 M11 35 L89 65 M11 65 L89 35"/></svg><h3>Portuguese</h3></div>
+                    <div class="shape-card" onclick="selectShape('Moval Cut', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M50 8 C26 26 26 74 50 92 C74 74 74 26 50 8 Z"/><ellipse cx="50" cy="50" rx="12" ry="26"/><path d="M50 8 V24 M50 76 V92 M29 50 H38 M62 50 H71 M34 30 L42 38 M66 30 L58 38 M66 70 L58 62 M34 70 L42 62"/></svg><h3>Moval Cut</h3></div>
+                    <div class="shape-card" onclick="selectShape('Other', this)"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="50" cy="50" r="40" stroke-dasharray="4 4"/><line x1="50" y1="20" x2="50" y2="80"/><line x1="20" y1="50" x2="80" y2="50"/></svg><h3>Other</h3></div>
+                </div>
+            </div>
+
+            <div class="range-container-flex">
+                <div class="range-sub-section">
+                    <span class="input-label">Enter Carat Range</span>
+                    <div class="box-group-flex">
+                        <input type="text" id="caratFrom" class="range-input-box" placeholder="From (e.g. 0.50)" oninput="handleRangeLogic('carat')">
+                        <input type="text" id="caratTo" class="range-input-box" placeholder="To (e.g. 1.50)" oninput="handleRangeLogic('carat')">
+                    </div>
+                </div>
+
+                <div class="range-sub-section">
+                    <span class="input-label">Enter MM Range</span>
+                    <div class="box-group-flex">
+                        <input type="text" id="mmFrom" class="range-input-box" placeholder="From (e.g. 4.00)" oninput="handleRangeLogic('mm')">
+                        <input type="text" id="mmTo" class="range-input-box" placeholder="To (e.g. 8.00)" oninput="handleRangeLogic('mm')">
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title-premium">SELECT CLARITY</h2>
+            <div class="premium-box-grid">
+                <div class="premium-square-card clarity-item" onclick="selectClarity('FL', this)">FL</div>
+                <div class="premium-square-card clarity-item" onclick="selectClarity('IF', this)">IF</div>
+                <div class="premium-square-card clarity-item" onclick="selectClarity('VVS1', this)">VVS1</div>
+                <div class="premium-square-card clarity-item" onclick="selectClarity('VVS2', this)">VVS2</div>
+                <div class="premium-square-card clarity-item" onclick="selectClarity('VS1', this)">VS1</div>
+                <div class="premium-square-card clarity-item" onclick="selectClarity('VS2', this)">VS2</div>
+                <div class="premium-square-card clarity-item" onclick="selectClarity('SI1', this)">SI1</div>
+                <div class="premium-square-card clarity-item" onclick="selectClarity('SI2', this)">SI2</div>
+                <div class="premium-square-card clarity-item" onclick="selectClarity('I1', this)">I1</div>
+                <div class="premium-square-card clarity-item" onclick="selectClarity('I2', this)">I2</div>
+                <div class="premium-square-card clarity-item" onclick="selectClarity('I3', this)">I3</div>
+            </div>
+
+            <h2 class="section-title-premium">SELECT COLOR</h2>
             
-            <!-- 🚀 શેપ ક્લિક લોજિકમાં માત્ર શુદ્ધ નામ જ સેટ કર્યા છે -->
-            <div class="shape-grid">
-                <div class="shape-card" onclick="selectShape('Round', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><circle cx="50" cy="50" r="42"/><circle cx="50" cy="50" r="18"/><path d="M50 8 L50 32 M50 68 L50 92 M8 50 L32 50 M68 50 L92 50 M20 20 L37 37 M63 63 L80 80 M80 20 L63 37 M37 63 L20 80"/><path d="M50 8 L63 20 L50 32 L37 20 Z M50 92 L63 80 L50 68 L37 80 Z M8 50 L20 63 L32 50 L20 37 Z M92 50 L80 63 L68 50 L80 37 Z"/></svg><h3>Round</h3></div>
-                <div class="shape-card" onclick="selectShape('Princess', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><rect x="12" y="12" width="76" height="76"/><path d="M12 12 L88 88 M12 88 L88 12 M50 12 L50 88 M12 50 L88 50"/><path d="M12 12 L50 28 L88 12 L72 50 L88 88 L50 72 L12 88 L28 50 Z"/></svg><h3>Princess</h3></div>
-                <div class="shape-card" onclick="selectShape('Oval', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="50" cy="50" rx="28" ry="42"/><ellipse cx="50" cy="50" rx="12" ry="20"/><path d="M50 8 L50 30 M50 70 L50 92 M22 50 L38 50 M62 50 L78 50"/><path d="M50 8 L62 22 L50 30 L38 22 Z M50 92 L62 78 L50 70 L38 78 Z"/></svg><h3>Oval</h3></div>
-                <div class="shape-card" onclick="selectShape('Pear', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 10 C22 50 18 76 50 90 C82 76 78 50 50 10 Z"/><path d="M50 10 L50 90 M50 38 L30 64 M50 38 L70 64 M50 64 L22 76 M50 64 L78 76 M30 64 L50 90 L70 64"/></svg><h3>Pear</h3></div>
-                <div class="shape-card" onclick="selectShape('Marquise', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 6 C20 38 20 62 50 94 C80 62 80 38 50 6 Z"/><path d="M50 6 L50 94 M50 32 L30 50 L50 68 L70 50 Z M30 50 L50 6 L70 50 L50 94"/></svg><h3>Marquise</h3></div>
-                <div class="shape-card" onclick="selectShape('Emerald', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><rect x="20" y="12" width="60" height="76" rx="8"/><rect x="28" y="20" width="44" height="60" rx="4"/><rect x="36" y="28" width="28" height="44" rx="2"/><path d="M20 20 L28 20 M80 20 L72 20 M20 80 L28 80 M80 80 L72 80 M20 12 L28 20 M80 12 L72 20 M20 88 L28 80 M80 88 L72 80"/></svg><h3>Emerald</h3></div>
-                <div class="shape-card" onclick="selectShape('Cushion', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><rect x="16" y="16" width="68" height="68" rx="20"/><rect x="28" y="28" width="44" height="44" rx="10"/><path d="M16 16 L84 84 M16 84 L84 16 M50 16 L50 84 M16 50 L84 50"/></svg><h3>Cushion</h3></div>
-                <div class="shape-card" onclick="selectShape('Heart', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 26 C50 22 42 12 28 12 C14 12 8 28 25 52 C38 68 50 88 50 88 C50 88 62 68 75 52 C92 28 86 12 72 12 C58 12 50 22 50 26 Z"/><path d="M50 26 L50 88 M50 48 L25 32 M50 48 L75 32 M25 52 L50 48 L75 52"/></svg><h3>Heart</h3></div>
-                <div class="shape-card" onclick="selectShape('Asscher', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><rect x="16" y="16" width="68" height="68" rx="6"/><rect x="26" y="26" width="48" height="48" rx="3"/><rect x="38" y="38" width="24" height="24"/><path d="M16 16 L84 84 M16 84 L84 16"/></svg><h3>Asscher</h3></div>
-                <div class="shape-card" onclick="selectShape('Radiant', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><rect x="18" y="12" width="64" height="76" rx="6"/><path d="M18 18 L82 82 M18 82 L82 18 M50 12 L50 88 M18 50 L82 50"/><rect x="30" y="24" width="40" height="52"/></svg><h3>Radiant</h3></div>
-                <div class="shape-card" onclick="selectShape('Baguette', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><rect x="30" y="10" width="40" height="80"/><rect x="36" y="16" width="28" height="68"/><path d="M30 10 L36 16 M70 10 L64 16 M30 90 L36 76 M70 90 L64 76"/></svg><h3>Baguette</h3></div>
-                <div class="shape-card" onclick="selectShape('Trillion', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 12 L90 82 L10 82 Z"/><path d="M50 12 L50 58 M10 82 L50 58 M90 82 L50 58 M50 35 L26 70 L74 70 Z"/></svg><h3>Trillion</h3></div>
-                <div class="shape-card" onclick="selectShape('Kite', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 8 L85 45 L50 92 L15 45 Z"/><path d="M50 8 L50 92 M15 45 L85 45 M50 32 L32 45 L50 65 L68 45 Z"/></svg><h3>Kite</h3></div>
-                <div class="shape-card" onclick="selectShape('Shield', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><path d="M18 15 L82 15 L74 55 L50 88 L26 55 Z"/><path d="M18 15 L50 45 L82 15 M50 45 L50 88 M26 55 L50 45 L74 55"/></svg><h3>Shield</h3></div>
-                <div class="shape-card" onclick="selectShape('Hexagon', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 10 L85 30 L85 70 L50 90 L15 70 L15 30 Z"/><path d="M50 10 L50 90 M15 30 L85 70 M15 70 L85 30 M32 38 L68 38 L68 62 L32 62 Z"/></svg><h3>Hexagon</h3></div>
-                <div class="shape-card" onclick="selectShape('Octagon', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><path d="M35 12 L65 12 L88 35 L88 65 L65 88 L35 88 L12 65 L12 35 Z"/><path d="M35 12 L40 28 L60 28 L65 12 M12 35 L28 40 L28 60 L12 65 M88 35 L72 40 L72 60 L88 65 M35 88 L40 72 L60 72 L65 88"/></svg><h3>Octagon</h3></div>
-                <div class="shape-card" onclick="selectShape('Bullet', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><path d="M25 15 L75 15 L75 60 C75 60 50 90 50 90 C50 90 25 60 25 60 Z"/><path d="M25 15 L35 30 L65 30 L75 15 M35 30 L35 60 L50 78 L65 60 L65 30 M50 78 L50 90"/></svg><h3>Bullet</h3></div>
-                <div class="shape-card" onclick="selectShape('Trapezoid', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><path d="M30 18 L70 18 L88 78 L12 78 Z"/><path d="M30 18 L36 32 L64 32 L70 18 M12 78 L24 32 M88 78 L76 32 M24 32 L36 32 M76 32 L64 32"/></svg><h3>Trapezoid</h3></div>
-                <div class="shape-card" onclick="selectShape('Rose Cut', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><circle cx="50" cy="50" r="42"/><path d="M50 8 L50 92 M8 50 L92 50 M20 20 L80 80 M20 80 L80 20"/><polygon points="50,25 72,50 50,75 28,50"/></svg><h3>Rose Cut</h3></div>
-                <div class="shape-card" onclick="selectShape('Briolette', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><path d="M50 8 C25 45 22 80 50 94 C78 80 75 45 50 8 Z"/><path d="M50 8 C38 45 38 80 50 94 M50 8 C62 45 62 80 50 94 M26 50.5 H74 M32 72 H68 M38 28 H62"/></svg><h3>Briolette</h3></div>
-                <div class="shape-card other-shape-card" onclick="selectShape('Other', this)"><svg viewBox="0 0 100 100" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1"><line x1="50" y1="25" x2="50" y2="75" stroke="currentColor" stroke-width="1.5" /><line x1="25" y1="50" x2="75" y2="50" stroke="currentColor" stroke-width="1.5" /></svg><h3>Other</h3></div>
+            <div class="section-subtitle-premium">STANDARD COLORS (D - Z RANGE)</div>
+            <div class="premium-box-grid">
+                <div class="premium-square-card color-item" onclick="selectColor('D', this)">D</div>
+                <div class="premium-square-card color-item" onclick="selectColor('E', this)">E</div>
+                <div class="premium-square-card color-item" onclick="selectColor('F', this)">F</div>
+                <div class="premium-square-card color-item" onclick="selectColor('G', this)">G</div>
+                <div class="premium-square-card color-item" onclick="selectColor('H', this)">H</div>
+                <div class="premium-square-card color-item" onclick="selectColor('I', this)">I</div>
+                <div class="premium-square-card color-item" onclick="selectColor('J', this)">J</div>
+                <div class="premium-square-card color-item" onclick="selectColor('K', this)">K</div>
+                <div class="premium-square-card color-item" onclick="selectColor('L', this)">L</div>
+                <div class="premium-square-card color-item" onclick="selectColor('M', this)">M</div>
+                <div class="premium-square-card color-item" onclick="selectColor('N', this)">N</div>
+                <div class="premium-square-card color-item" onclick="selectColor('O', this)">O</div>
+                <div class="premium-square-card color-item" onclick="selectColor('P', this)">P</div>
+                <div class="premium-square-card color-item" onclick="selectColor('Q', this)">Q</div>
+                <div class="premium-square-card color-item" onclick="selectColor('R', this)">R</div>
+                <div class="premium-square-card color-item" onclick="selectColor('S', this)">S</div>
+                <div class="premium-square-card color-item" onclick="selectColor('T', this)">T</div>
+                <div class="premium-square-card color-item" onclick="selectColor('U', this)">U</div>
+                <div class="premium-square-card color-item" onclick="selectColor('V', this)">V</div>
+                <div class="premium-square-card color-item" onclick="selectColor('W', this)">W</div>
+                <div class="premium-square-card color-item" onclick="selectColor('X', this)">X</div>
+                <div class="premium-square-card color-item" onclick="selectColor('Y', this)">Y</div>
+                <div class="premium-square-card color-item" onclick="selectColor('Z', this)">Z</div>
             </div>
 
-            <div class="carat-range-section">
-                <span class="input-label">Enter Carat Range</span>
-                <div class="carat-box-group">
-                    <input type="text" id="caratFrom" class="carat-input-box" placeholder="From (e.g. 0.50)" oninput="updateCaratDisplay()">
-                    <input type="text" id="caratTo" class="carat-input-box" placeholder="To (e.g. 1.50)" oninput="updateCaratDisplay()">
-                </div>
-            </div>
-
-            <div class="clarity-master-section">
-                <h2 class="section-title">Select Clarity</h2>
-                <div class="clarity-box-grid">
-                    <div class="clarity-card" onclick="selectClarityElement('FL', this)">FL</div><div class="clarity-card" onclick="selectClarityElement('IF', this)">IF</div><div class="clarity-card" onclick="selectClarityElement('VVS1', this)">VVS1</div><div class="clarity-card" onclick="selectClarityElement('VVS2', this)">VVS2</div><div class="clarity-card" onclick="selectClarityElement('VS1', this)">VS1</div><div class="clarity-card" onclick="selectClarityElement('VS2', this)">VS2</div><div class="clarity-card" onclick="selectClarityElement('SI1', this)">SI1</div><div class="clarity-card" onclick="selectClarityElement('SI2', this)">SI2</div><div class="clarity-card" onclick="selectClarityElement('I1', this)">I1</div><div class="clarity-card" onclick="selectClarityElement('I2', this)">I2</div><div class="clarity-card" onclick="selectClarityElement('I3', this)">I3</div>
-                </div>
-            </div>
-
-            <div class="color-master-section">
-                <h2 class="section-title">Select Color</h2>
-                <div class="color-sub-title">Standard Colors (D - Z Range)</div>
-                <div class="color-box-grid">
-                    <div class="color-card" onclick="selectColorElement('D', this)">D</div><div class="color-card" onclick="selectColorElement('E', this)">E</div><div class="color-card" onclick="selectColorElement('F', this)">F</div><div class="color-card" onclick="selectColorElement('G', this)">G</div><div class="color-card" onclick="selectColorElement('H', this)">H</div><div class="color-card" onclick="selectColorElement('I', this)">I</div><div class="color-card" onclick="selectColorElement('J', this)">J</div><div class="color-card" onclick="selectColorElement('K', this)">K</div><div class="color-card" onclick="selectColorElement('L', this)">L</div><div class="color-card" onclick="selectColorElement('M', this)">M</div><div class="color-card" onclick="selectColorElement('N', this)">N</div><div class="color-card" onclick="selectColorElement('O', this)">O</div><div class="color-card" onclick="selectColorElement('P', this)">P</div><div class="color-card" onclick="selectColorElement('Q', this)">Q</div><div class="color-card" onclick="selectColorElement('R', this)">R</div><div class="color-card" onclick="selectColorElement('S', this)">S</div><div class="color-card" onclick="selectColorElement('T', this)">T</div><div class="color-card" onclick="selectColorElement('U', this)">U</div><div class="color-card" onclick="selectColorElement('V', this)">V</div><div class="color-card" onclick="selectColorElement('W', this)">W</div><div class="color-card" onclick="selectColorElement('X', this)">X</div><div class="color-card" onclick="selectColorElement('Y', this)">Y</div><div class="color-card" onclick="selectColorElement('Z', this)">Z</div>
-                </div>
-                <div class="color-sub-title">Fancy Colors (Original Tones)</div>
-                <div class="color-box-grid">
-                    <div class="color-card f-yellow" onclick="selectColorElement('Fancy Yellow', this)">Yellow</div><div class="color-card f-pink" onclick="selectColorElement('Fancy Pink', this)">Pink</div><div class="color-card f-blue" onclick="selectColorElement('Fancy Blue', this)">Blue</div><div class="color-card f-green" onclick="selectColorElement('Fancy Green', this)">Green</div><div class="color-card f-red" onclick="selectColorElement('Fancy Red', this)">Red</div><div class="color-card f-orange" onclick="selectColorElement('Fancy Orange', this)">Orange</div><div class="color-card f-purple" onclick="selectColorElement('Fancy Purple', this)">Purple</div><div class="color-card f-black" onclick="selectColorElement('Fancy Black', this)">Black</div>
-                </div>
+            <div class="section-subtitle-premium">FANCY COLORS (ORIGINAL TONES)</div>
+            <div class="premium-box-grid">
+                <div class="premium-square-card color-item f-yellow" onclick="selectColor('YELLOW', this)">YELLOW</div>
+                <div class="premium-square-card color-item f-pink" onclick="selectColor('PINK', this)">PINK</div>
+                <div class="premium-square-card color-item f-blue" onclick="selectColor('BLUE', this)">BLUE</div>
+                <div class="premium-square-card color-item f-green" onclick="selectColor('GREEN', this)">GREEN</div>
+                <div class="premium-square-card color-item f-red" onclick="selectColor('RED', this)">RED</div>
+                <div class="premium-square-card color-item f-orange" onclick="selectColor('ORANGE', this)">ORANGE</div>
+                <div class="premium-square-card color-item f-purple" onclick="selectColor('PURPLE', this)">PURPLE</div>
+                <div class="premium-square-card color-item f-black" onclick="selectColor('BLACK', this)">BLACK</div>
             </div>
 
             <div class="bottom-apply-section">
@@ -174,128 +294,233 @@
             </div>
         </div>
 
-        <footer>
-            <div class="footer-social-group">
-                <a href="https://www.instagram.com/aureza_jewels_v/" target="_blank" class="social-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                <a href="https://www.facebook.com/profile.php?id=61589263814331" target="_blank" class="social-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                <a href="https://wa.me/919274658271" target="_blank" class="social-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.704 1.456h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
-                <a href="https://t.me/+919274658271" target="_blank" class="social-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a>
+        <footer style="background-color: #111111; padding: 50px 20px; width: 100%; text-align: center; border-top: 1px solid #222222;">
+            <div style="font-family: 'Segoe UI', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 4px; color: #94a3b8; margin-bottom: 30px; font-weight: 600;">Connect With Aureza</div>
+            
+            <div class="footer-social-group" style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
+                
+                <a href="https://wa.me/919274658271" target="_blank" class="social-link" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 12px; font-family: 'Segoe UI', sans-serif; font-size: 1.05rem; font-weight: 500; letter-spacing: 1px; transition: all 0.3s ease;">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="#25D366"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.754-1.454L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.742.002-2.602-.1022-5.05-2.922-6.925C16.143 2.064 14.131 1.63 12.012 1.63c-5.432 0-9.855 4.37-9.86 9.742a9.613 9.613 0 0 0 1.514 5.176l-.1015.428-.626 2.286 2.34-.612.438-.115z"/></svg>
+                    WhatsApp
+                </a>
+
+                <a href="https://t.me/+919274658271" target="_blank" class="social-link" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 12px; font-family: 'Segoe UI', sans-serif; font-size: 1.05rem; font-weight: 500; letter-spacing: 1px; transition: all 0.3s ease;">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="#0088cc"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.717-.961 4.277-1.357 5.864-.168.67-.487.894-.725.915-.518.049-.91-.341-1.411-.669-.784-.513-1.227-.831-1.987-1.332-.879-.579-.31-1.002.192-1.52.13-.135 2.414-2.213 2.458-2.401.006-.024.01-.112-.032-.149-.042-.037-.104-.024-.149-.014-.063.011-1.067.43-3.003 1.737-.284.195-.541.29-.771.285-.253-.005-.741-.143-1.103-.26-.444-.144-.798-.221-.767-.467.016-.128.236-.26.659-.395 2.584-1.127 4.307-1.871 5.171-2.232 2.463-.1.026 5.123 1.037 5.123 1.444 0 .093.002.212-.008.355-.044z"/></svg>
+                    Telegram
+                </a>
+
+                <a href="https://www.instagram.com/aureza_jewels_v/" target="_blank" class="social-link" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 12px; font-family: 'Segoe UI', sans-serif; font-size: 1.05rem; font-weight: 500; letter-spacing: 1px; transition: all 0.3s ease;">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="#E1306C"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.662 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    Instagram
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61589263814331" target="_blank" class="social-link" style="color: #ffffff; text-decoration: none; display: flex; align-items: center; gap: 12px; font-family: 'Segoe UI', sans-serif; font-size: 1.05rem; font-weight: 500; letter-spacing: 1px; transition: all 0.3s ease;">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    Facebook
+                </a>
             </div>
         </footer>
     </div>
 
-    <div id="whitePageWrapper"></div>
+    <div id="whitePageView" class="white-page-view">
+        <div class="wp-bar">
+            <button class="back-btn" onclick="closeWhitePage()">← Back</button>
+        </div>
+        <div class="wp-content">
+            <div class="wp-instruction">Your Selected Diamond Specification</div>
+            <textarea id="wpSpecBox" class="wp-editable-box"></textarea>
+            
+            <div class="wp-chat-group">
+                <a id="wpWhatsAppBtn" href="#" target="_blank" class="chat-action-btn wp-wa-btn">
+                    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.754-1.454L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.742.002-2.602-.1022-5.05-2.922-6.925C16.143 2.064 14.131 1.63 12.012 1.63c-5.432 0-9.855 4.37-9.86 9.742a9.613 9.613 0 0 0 1.514 5.176l-.1015.428-.626 2.286 2.34-.612.438-.115zM16.518 14.1c-.244-.122-1.45-.714-1.674-.794-.223-.081-.386-.122-.549.122-.163.244-.63.794-.773.957-.142.163-.285.183-.53.061s-1.03-.38-1.962-1.211c-.725-.647-1.215-1.446-1.357-1.69-.143-.244-.015-.376.107-.497.111-.11.244-.257.366-.386.122-.13.163-.217.244-.361.081-.145.041-.271-.02-.393-.062-.122-.549-1.32-.753-1.81-.198-.478-.4-.413-.549-.42l-.467-.007c-.163 0-.427.061-.65.346-.224.285-.854.835-.854 2.036 0 1.201.875 2.361.996 2.524.122.163 1.722 2.629 4.171 3.686.582.251 1.037.401 1.391.514.585.185 1.117.159 1.538.103.469-.062 1.45-.592 1.654-1.163.203-.571.203-1.061.142-1.163-.06-.101-.223-.163-.467-.285z"/></svg>
+                    WhatsApp
+                </a>
+                <a id="wpTelegramBtn" href="#" target="_blank" class="chat-action-btn wp-tg-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18.717-.961 4.277-1.357 5.864-.168.67-.487.894-.725.915-.518.049-.91-.341-1.411-.669-.784-.513-1.227-.831-1.987-1.332-.879-.579-.31-1.002.192-1.52.13-.135 2.414-2.213 2.458-2.401.006-.024.01-.112-.032-.149-.042-.037-.104-.024-.149-.014-.063.011-1.067.43-3.003 1.737-.284.195-.541.29-.771.285-.253-.005-.741-.143-1.103-.26-.444-.144-.798-.221-.767-.467.016-.128.236-.26.659-.395 2.584-1.127 4.307-1.871 5.171-2.232 2.463-.1.026 5.123 1.037 5.123 1.444 0 .093.002.212-.008.355-.044z"/></svg>
+                    Telegram
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script>
-        let selectedType = ""; let selectedShape = ""; let caratRangeText = ""; let selectedColor = ""; let selectedClarity = "";
+        let selectedType = '';
+        let selectedShape = '';
+        let selectedClarity = '';
+        let selectedColor = '';
+
+        function selectType(type) {
+            selectedType = type;
+            document.getElementById('btnNatural').classList.remove('active');
+            document.getElementById('btnLabGrown').classList.remove('active');
+            if(type === 'Natural Diamond') {
+                document.getElementById('btnNatural').classList.add('active');
+            } else {
+                document.getElementById('btnLabGrown').classList.add('active');
+            }
+            updateSearchInput();
+        }
+
+        function selectShape(shape, element) {
+            selectedShape = shape;
+            let cards = document.querySelectorAll('.shape-card');
+            cards.forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            updateSearchInput();
+        }
+
+        function selectClarity(clarity, element) {
+            selectedClarity = clarity;
+            let cards = document.querySelectorAll('.clarity-item');
+            cards.forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            updateSearchInput();
+        }
+
+        function selectColor(color, element) {
+            selectedColor = color;
+            let cards = document.querySelectorAll('.color-item');
+            cards.forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            updateSearchInput();
+        }
+
+        function handleRangeLogic(type) {
+            let caratFrom = document.getElementById('caratFrom');
+            let caratTo = document.getElementById('caratTo');
+            let mmFrom = document.getElementById('mmFrom');
+            let mmTo = document.getElementById('mmTo');
+
+            if (type === 'carat') {
+                caratFrom.value = caratFrom.value.replace(/[^0-9.]/g, '');
+                caratTo.value = caratTo.value.replace(/[^0-9.]/g, '');
+                
+                if (caratFrom.value.trim() !== "" || caratTo.value.trim() !== "") {
+                    mmFrom.disabled = true;
+                    mmTo.disabled = true;
+                } else {
+                    mmFrom.disabled = false;
+                    mmTo.disabled = false;
+                }
+            } else if (type === 'mm') {
+                mmFrom.value = mmFrom.value.replace(/[^0-9.]/g, '');
+                mmTo.value = mmTo.value.replace(/[^0-9.]/g, '');
+
+                if (mmFrom.value.trim() !== "" || mmTo.value.trim() !== "") {
+                    caratFrom.disabled = true;
+                    caratTo.disabled = true;
+                } else {
+                    caratFrom.disabled = false;
+                    caratTo.disabled = false;
+                }
+            }
+            updateSearchInput();
+        }
+
+        function getCleanRangeText(fromId, toId, unit) {
+            let fromVal = document.getElementById(fromId).value.trim();
+            let toVal = document.getElementById(toId).value.trim();
+            
+            if (!fromVal && !toVal) return '';
+            if (fromVal && !toVal) return `${fromVal} ${unit}`;
+            if (!fromVal && toVal) return `${toVal} ${unit}`;
+            return `${fromVal} - ${toVal} ${unit}`;
+        }
+
+        function generateMainPageText() {
+            let caratText = getCleanRangeText('caratFrom', 'caratTo', 'Carat');
+            let mmText = getCleanRangeText('mmFrom', 'mmTo', 'MM');
+
+            let parts = [];
+            if (selectedType) parts.push(selectedType);
+            if (selectedShape) parts.push(selectedShape);
+            if (caratText) parts.push(caratText);
+            if (mmText) parts.push(mmText);
+            if (selectedClarity) parts.push(selectedClarity);
+            if (selectedColor) parts.push(selectedColor); 
+
+            return parts.join(' - ');
+        }
+
+        function getWhitePageRangeText(fromId, toId, unit) {
+            let fromVal = document.getElementById(fromId).value.trim();
+            let toVal = document.getElementById(toId).value.trim();
+            
+            if (!fromVal && !toVal) return '';
+            if (fromVal && !toVal) return `${fromVal} ${unit}`;
+            if (!fromVal && toVal) return `${toVal} ${unit}`;
+            return `${fromVal} - ${toVal} ${unit}`;
+        }
+
+        function generateWhitePageText() {
+            let caratText = getWhitePageRangeText('caratFrom', 'caratTo', 'Carat');
+            let mmText = getWhitePageRangeText('mmFrom', 'mmTo', 'MM');
+
+            let parts = [];
+            if (selectedType) parts.push(selectedType);
+            if (selectedShape) parts.push(selectedShape);
+            if (caratText) parts.push(caratText);
+            if (mmText) parts.push(mmText);
+            if (selectedClarity) parts.push(selectedClarity);
+            if (selectedColor) parts.push(`${selectedColor} Color`);
+
+            return parts.join('\n');
+        }
+
+        function updateSearchInput() {
+            let mainText = generateMainPageText();
+            document.getElementById('diamondSearch').value = mainText;
+            
+            let clearBtn = document.getElementById('clearBtn');
+            if (mainText.trim() !== "") {
+                clearBtn.style.display = 'flex';
+            } else {
+                clearBtn.style.display = 'none';
+            }
+        }
+
+        function clearAllSelections() {
+            selectedType = ''; selectedShape = ''; selectedClarity = ''; selectedColor = '';
+            document.getElementById('caratFrom').value = ''; document.getElementById('caratTo').value = '';
+            document.getElementById('mmFrom').value = ''; document.getElementById('mmTo').value = '';
+            
+            document.getElementById('caratFrom').disabled = false; document.getElementById('caratTo').disabled = false;
+            document.getElementById('mmFrom').disabled = false; document.getElementById('mmTo').disabled = false;
+
+            document.getElementById('btnNatural').classList.remove('active');
+            document.getElementById('btnLabGrown').classList.remove('active');
+
+            document.querySelectorAll('.shape-card').forEach(c => c.classList.remove('selected'));
+            document.querySelectorAll('.clarity-item').forEach(c => c.classList.remove('selected'));
+            document.querySelectorAll('.color-item').forEach(c => c.classList.remove('selected'));
+
+            updateSearchInput();
+        }
 
         function openWhitePage() {
-            let currentSpecs = document.getElementById('diamondSearch').value;
-            if(!currentSpecs.trim()) { currentSpecs = "No specifications selected."; }
+            let wpText = generateWhitePageText();
+            let editableBox = document.getElementById('wpSpecBox');
+            
+            editableBox.value = wpText || 'No Specifications Selected.';
+            
+            updateChatLinks();
+            editableBox.oninput = updateChatLinks;
 
-            document.getElementById("mainWebsiteContent").style.display = "none";
-            document.body.style.padding = "0";
+            document.getElementById('mainWebsiteContent').style.display = 'none';
+            document.getElementById('whitePageView').style.display = 'flex';
+            window.scrollTo(0, 0);
+        }
 
-            let whitePageHTML = `
-                <div class="white-page-view">
-                    <div class="wp-bar">
-                        <button class="back-btn" onclick="closeWhitePage()">← Back</button>
-                    </div>
-                    <div class="wp-content">
-                        <div class="wp-instruction">Your Selected Diamond Inquiry</div>
-                        <div class="wp-spec-box" id="finalSpecDisplay">${currentSpecs}</div>
-                        <div class="wp-chat-group">
-                            <button class="chat-action-btn wp-wa-btn" onclick="sendToWhatsApp('${currentSpecs}')">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.704 1.456h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-                                WhatsApp
-                            </button>
-                            <button class="chat-action-btn wp-tg-btn" onclick="sendToTelegram('${currentSpecs}')">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                                Telegram
-                            </button>
-                        </div>
-                    </div>
-                    <div class="wp-bar"></div>
-                </div>
-            `;
-            document.getElementById("whitePageWrapper").innerHTML = whitePageHTML;
+        function updateChatLinks() {
+            let currentText = document.getElementById('wpSpecBox').value;
+            let encodedMsg = encodeURIComponent(currentText);
+            document.getElementById('wpWhatsAppBtn').href = "https://wa.me/919274658271?text=" + encodedMsg;
+            document.getElementById('wpTelegramBtn').href = "https://t.me/+919274658271?text=" + encodedMsg;
         }
 
         function closeWhitePage() {
-            document.getElementById("whitePageWrapper").innerHTML = "";
-            document.getElementById("mainWebsiteContent").style.display = "block";
-            document.body.style.padding = "40px 0 0 0";
-        }
-
-        function sendToWhatsApp(messageText) {
-            let encodedMessage = encodeURIComponent("Hello Aureza Jewels, I am interested in this diamond specification:\n\n" + messageText);
-            let whatsappURL = "https://wa.me/919274658271?text=" + encodedMessage;
-            window.open(whatsappURL, '_blank');
-        }
-
-        function sendToTelegram(messageText) {
-            let encodedMessage = encodeURIComponent("Hello Aureza Jewels, I am interested in this diamond specification:\n" + messageText);
-            let telegramURL = "https://t.me/share/url?url=" + encodedMessage;
-            window.open(telegramURL, '_blank');
-        }
-
-        function selectType(typeName) {
-            selectedType = typeName;
-            document.getElementById('btnNatural').classList.remove('active');
-            document.getElementById('btnLabGrown').classList.remove('active');
-            if(typeName === 'Natural Diamond') document.getElementById('btnNatural').classList.add('active');
-            if(typeName === 'Lab-Grown Diamond') document.getElementById('btnLabGrown').classList.add('active');
-            updateSearchDisplay();
-        }
-
-        function selectShape(shapeName, element) {
-            selectedShape = shapeName;
-            let allCards = document.querySelectorAll('.shape-card');
-            allCards.forEach(card => card.classList.remove('selected'));
-            element.classList.add('selected');
-            updateSearchDisplay();
-        }
-
-        function selectClarityElement(clarityName, element) {
-            selectedClarity = clarityName;
-            let allClarityCards = document.querySelectorAll('.clarity-card');
-            allClarityCards.forEach(card => card.classList.remove('selected'));
-            element.classList.add('selected');
-            updateSearchDisplay();
-        }
-
-        function selectColorElement(colorName, element) {
-            selectedColor = colorName;
-            let allColorCards = document.querySelectorAll('.color-card');
-            allColorCards.forEach(card => card.classList.remove('selected'));
-            element.classList.add('selected');
-            updateSearchDisplay();
-        }
-
-        function updateCaratDisplay() {
-            let fromVal = document.getElementById('caratFrom').value.trim();
-            let toVal = document.getElementById('caratTo').value.trim();
-            
-            if (fromVal !== "" && toVal !== "") {
-                caratRangeText = fromVal + " Ct - " + toVal + " Ct";
-            } else if (fromVal !== "" && toVal === "") {
-                caratRangeText = fromVal + " Ct";
-            } else if (fromVal === "" && toVal !== "") {
-                caratRangeText = toVal + " Ct";
-            } else {
-                caratRangeText = "";
-            }
-            updateSearchDisplay();
-        }
-
-        function updateSearchDisplay() {
-            let displayText = "";
-            if(selectedType) displayText += selectedType;
-            if(selectedShape) { if(displayText) displayText += " | "; displayText += selectedShape; }
-            if(selectedClarity) { if(displayText) displayText += " | "; displayText += selectedClarity; }
-            if(selectedColor) { if(displayText) displayText += " | "; displayText += selectedColor; }
-            if(caratRangeText) { if(displayText) displayText += " | "; displayText += caratRangeText; }
-            document.getElementById('diamondSearch').value = displayText;
+            document.getElementById('mainWebsiteContent').style.display = 'block';
+            document.getElementById('whitePageView').style.display = 'none';
         }
     </script>
 </body>
